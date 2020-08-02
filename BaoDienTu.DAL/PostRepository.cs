@@ -1,0 +1,176 @@
+﻿using BaoDienTu.DAL.Interface;
+using BaoDienTu.Domain.Request.Post;
+using BaoDienTu.Domain.Response.Post;
+using Dapper;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BaoDienTu.DAL
+{
+    public class PostRepository : BaseRepository, IPostRepository
+    {
+        public async Task<CreatePostResult> Create(CreatePost request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                
+                parameters.Add("@Title", request.Title);
+                parameters.Add("@Content", request.Content);
+                parameters.Add("@Like", request.Like);
+                parameters.Add("@Link", request.Link);
+                parameters.Add("@Status", request.Status);
+                parameters.Add("@@PostHastagId", request.PostHashTagId);
+                parameters.Add("@AuthorId", request.AuthorId);
+                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@SubCategoryId", request.SubCategoryId);
+                parameters.Add("@AverageRate", request.AverageRate);
+                parameters.Add("@View", request.View);
+
+                return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
+                                      param: parameters,
+                                      sql: "SP_createNewPost",
+                                      commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception e)
+            {
+                return new CreatePostResult()
+                {
+                    PostId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
+        }
+
+        public async Task<DeletePostResult> Delete(int postId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@PostId", postId);
+            return (await SqlMapper.QueryFirstOrDefaultAsync<DeletePostResult>(cnn: conn,
+                             param: parameters,
+                            sql: "SP_softDelete",
+                            commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<PostView> Get(int postId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@PostId", postId);
+            return (await SqlMapper.QueryFirstOrDefaultAsync<PostView>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getPostByPostID",
+                                commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<IEnumerable<PostByCategoryId>> GetPostByCategoryId(int categoryId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CategoryId", categoryId);
+            return (await SqlMapper.QueryAsync<PostByCategoryId>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getPostByCategoryId",
+                                commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<IEnumerable<PostBySubCategoryId>> GetPostBySubCategoryId(int subCategoryId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@SubCategoryId", subCategoryId);
+            return (await SqlMapper.QueryAsync<PostBySubCategoryId>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getPostBySubCategoryId",
+                                commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<IEnumerable<PostView>> Gets()
+        {
+            return await SqlMapper.QueryAsync<PostView>(conn, "SP_getAllPost", CommandType.StoredProcedure);
+        }
+
+        public async Task<IEnumerable<FastInfoPostView>> GetsFastInfoPost()
+        {
+            return await SqlMapper.QueryAsync<FastInfoPostView>(conn, "SP_getFastInfoPost", CommandType.StoredProcedure);
+        }
+
+        public async Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@DateToGet", dateToGet);
+            parameters.Add("@NumberOfPost", numberOfPost);
+            return (await SqlMapper.QueryAsync<TopPostByDay>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getTopPostByDay",
+                                commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<SavePostResult> Save(SavePost request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@PostId", request.PostId);
+                parameters.Add("@Title", request.Title);
+                parameters.Add("@Content", request.Content);
+                parameters.Add("@Like", request.Like);
+                parameters.Add("@Link", request.Link);
+                parameters.Add("@Status", request.Status);
+                parameters.Add("@PostHashTagId", request.PostHashTagId);
+                parameters.Add("@AuthorId", request.AuthorId);
+                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@SubCategoryId", request.SubCategoryId);
+                parameters.Add("@AverageRate", request.AverageRate);
+                parameters.Add("@View", request.View);
+
+                return (await SqlMapper.QueryFirstOrDefaultAsync<SavePostResult>(cnn: conn,
+                                      param: parameters,
+                                      sql: "sp_SavePost",
+                                      commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception e)
+            {
+                return new SavePostResult()
+                {
+                    PostId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
+        }
+
+        public async Task<UpdatePostResult> Update(UpdatePost request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@PostId", request.PostId);
+                parameters.Add("@Title", request.Title);
+                parameters.Add("@Content", request.Content);
+                parameters.Add("@Like", request.Like);
+                parameters.Add("@Link", request.Link);
+                parameters.Add("@Status", request.Status);
+                parameters.Add("@PostHasTagId", request.PostHashTagId);
+                parameters.Add("@AuthorId", request.AuthorId);
+                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@SubCategoryId", request.SubCategoryId);
+                parameters.Add("@AverageRate", request.AverageRate);
+                parameters.Add("@View", request.View);
+                parameters.Add("@IsDeleted", request.IsDeleted);
+
+                return (await SqlMapper.QueryFirstOrDefaultAsync<UpdatePostResult>(cnn: conn,
+                                      param: parameters,
+                                      sql: "SP_updatePost",
+                                      commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception e)
+            {
+                return new UpdatePostResult()
+                {
+                    PostId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
+        }
+    }
+}

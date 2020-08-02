@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaoDienTu.BAL.Interface\BaoDienTu.BAL.Interface.csproj" />
+    <ProjectReference Include="..\BaoDienTu.DAL.Interface\BaoDienTu.DAL.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.API", "BaoDienTu\BaoDienTu.API.csproj", "{E6EB0AB6-6AD6-4A8F-9418-8C08AA9EAC8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.BAL.Interface", "BaoDienTu.BAL.Interface\BaoDienTu.BAL.Interface.csproj", "{74D66560-A908-4782-8D97-3DF11B814FFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.BAL", "BaoDienTu.BAL\BaoDienTu.BAL.csproj", "{8F42B26E-AC13-4D77-A2F3-4BF8A4D69FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.DAL", "BaoDienTu.DAL\BaoDienTu.DAL.csproj", "{719DF113-4A68-4525-A0F9-9854036E9191}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.DAL.Interface", "BaoDienTu.DAL.Interface\BaoDienTu.DAL.Interface.csproj", "{2E482F76-D044-4A7D-B70A-A728F34C7B6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaoDienTu.Domain", "BaoDienTu.Domain\BaoDienTu.Domain.csproj", "{79066CCF-1CCF-4722-9C70-16CBE75D3900}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6EB0AB6-6AD6-4A8F-9418-8C08AA9EAC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EB0AB6-6AD6-4A8F-9418-8C08AA9EAC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EB0AB6-6AD6-4A8F-9418-8C08AA9EAC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EB0AB6-6AD6-4A8F-9418-8C08AA9EAC8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D66560-A908-4782-8D97-3DF11B814FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D66560-A908-4782-8D97-3DF11B814FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D66560-A908-4782-8D97-3DF11B814FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D66560-A908-4782-8D97-3DF11B814FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F42B26E-AC13-4D77-A2F3-4BF8A4D69FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F42B26E-AC13-4D77-A2F3-4BF8A4D69FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F42B26E-AC13-4D77-A2F3-4BF8A4D69FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F42B26E-AC13-4D77-A2F3-4BF8A4D69FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{719DF113-4A68-4525-A0F9-9854036E9191}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{719DF113-4A68-4525-A0F9-9854036E9191}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{719DF113-4A68-4525-A0F9-9854036E9191}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{719DF113-4A68-4525-A0F9-9854036E9191}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E482F76-D044-4A7D-B70A-A728F34C7B6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E482F76-D044-4A7D-B70A-A728F34C7B6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E482F76-D044-4A7D-B70A-A728F34C7B6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E482F76-D044-4A7D-B70A-A728F34C7B6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79066CCF-1CCF-4722-9C70-16CBE75D3900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79066CCF-1CCF-4722-9C70-16CBE75D3900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79066CCF-1CCF-4722-9C70-16CBE75D3900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79066CCF-1CCF-4722-9C70-16CBE75D3900}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B6C2012-762E-4591-AE75-D7BF38E2BB92}
+	EndGlobalSection
+EndGlobal
