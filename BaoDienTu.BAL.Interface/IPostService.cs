@@ -11,6 +11,7 @@ namespace BaoDienTu.BAL.Interface
     {
         Task<IEnumerable<PostView>> Gets();
         Task<IEnumerable<FastInfoPostView>> GetsFastInfoPost();
+        Task<IEnumerable<Fast5InfoPostView>> Gets5FastInfoPost();
         Task<PostView> Get(int postId);
         Task<DeletePostResult> Delete(int postId);
         Task<SavePostResult> Save(SavePost request);

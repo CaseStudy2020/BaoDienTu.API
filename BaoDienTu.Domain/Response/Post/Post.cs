@@ -17,7 +17,7 @@ namespace BaoDienTu.Domain.Response.Post
         public Status Status { get; set; }
         public int CategoryId { get; set; }
         public int PostHashTagId { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public int SubCategoryId { get; set; }
         public int View { get; set; }
         [DataType(DataType.Date)]

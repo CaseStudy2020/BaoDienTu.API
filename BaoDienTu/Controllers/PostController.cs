@@ -39,6 +39,12 @@ namespace BaoDienTu.Controllers
         {
             return await postService.GetsFastInfoPost();
         }
+        [HttpGet]
+        [Route("/api/post/Gets5FastInfoPost")]
+        public async Task<IEnumerable<Fast5InfoPostView>> Gets5FastInfoPost()
+        {
+            return await postService.Gets5FastInfoPost();
+        }
 
         [HttpGet]
         [Route("/api/post/get/{id}")]
