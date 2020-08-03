@@ -55,5 +55,30 @@ namespace BaoDienTu.DAL
                                 sql: "SP_getSubcategoryByCategoryId",
                                 commandType: CommandType.StoredProcedure));
         }
+
+        public async Task<UpdateSubCategoryResult> Update(UpdateSubCategory request)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@SubCategoryId", request.SubCategoryId);
+                parameters.Add("@SubCategoryName", request.SubCategoryName);
+
+
+                return (await SqlMapper.QueryFirstOrDefaultAsync<UpdateSubCategoryResult>(cnn: conn,
+                                      param: parameters,
+                                      sql: "SP_editSubCategory",
+                                      commandType: CommandType.StoredProcedure));
+            }
+            catch (Exception e)
+            {
+                return new UpdateSubCategoryResult()
+                {
+                    SubCategoryId = 0,
+                    Message = "Something went wrong, please try again"
+                };
+            }
+        }
     }
 }

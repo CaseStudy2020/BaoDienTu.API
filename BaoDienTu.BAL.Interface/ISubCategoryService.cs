@@ -12,5 +12,6 @@ namespace BaoDienTu.BAL.Interface
         Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId);
         Task<CreateSubCategoryResult> Create(CreateSubCategory request);
         Task<DeleteSubCategoryResult> Delete(int subCategoryId);
+        Task<UpdateSubCategoryResult> Update(UpdateSubCategory request);
     }
 }

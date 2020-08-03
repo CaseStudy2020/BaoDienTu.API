@@ -39,5 +39,11 @@ namespace BaoDienTu.API.Controllers
         {
             return await subCategoryService.Delete(id);
         }
+        [HttpPost]
+        [Route("/api/subcategory/update")]
+        public async Task<UpdateSubCategoryResult> Update(UpdateSubCategory request)
+        {
+            return await subCategoryService.Update(request);
+        }
     }
 }

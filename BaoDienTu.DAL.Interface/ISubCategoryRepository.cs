@@ -18,6 +18,7 @@ namespace BaoDienTu.DAL.Interface
         Task<CreateSubCategoryResult> Create(CreateSubCategory request);
        
         Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId);
-       
+        Task<UpdateSubCategoryResult> Update(UpdateSubCategory request);
+
     }
 }

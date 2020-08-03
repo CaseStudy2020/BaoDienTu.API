@@ -32,5 +32,10 @@ namespace BaoDienTu.BAL
         {
             return await subCategoryRepository.GetPostByCategoryId(categoryId);
         }
+
+        public async Task<UpdateSubCategoryResult> Update(UpdateSubCategory request)
+        {
+            return await subCategoryRepository.Update(request);
+        }
     }
 }
