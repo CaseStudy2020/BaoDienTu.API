@@ -13,5 +13,6 @@ namespace BaoDienTu.Domain.Response.Post
         public string DateCreated { get; set; }
         public int NumberOfComment { get; set; }
         public string Thumbnail { get; set; }
+        public int View { get; set; }
     }
 }
