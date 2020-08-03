@@ -58,6 +58,11 @@ namespace BaoDienTu.BAL
             return await postRepository.GetsFastInfoPost();
         }
 
+        public async Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay()
+        {
+            return await postRepository.GetTop10MostViewOfDay();
+        }
+
         public async Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost)
         {
             return await postRepository.GetTopPostByDay(dateToGet, numberOfPost);

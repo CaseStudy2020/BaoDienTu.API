@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BaoDienTu.Domain.Response.Post
 {
-    public class TopPostByDay
+    public class Top10MostViewOfDay
     {
         public int PostId { get; set; }
         public string Title { get; set; }

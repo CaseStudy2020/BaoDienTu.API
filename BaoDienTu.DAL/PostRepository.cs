@@ -100,6 +100,11 @@ namespace BaoDienTu.DAL
             return await SqlMapper.QueryAsync<FastInfoPostView>(conn, "SP_getFastInfoPost", CommandType.StoredProcedure);
         }
 
+        public async Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay()
+        {
+            return await SqlMapper.QueryAsync<Top10MostViewOfDay>(conn, "SP_getTop10MostViewOfDay", CommandType.StoredProcedure);
+        }
+
         public async Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost)
         {
             DynamicParameters parameters = new DynamicParameters();
