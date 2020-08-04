@@ -19,20 +19,15 @@ namespace BaoDienTu.DAL
                 DynamicParameters parameters = new DynamicParameters();
                 
                 parameters.Add("@Title", request.Title);
-                parameters.Add("@Content", request.Content);
-                parameters.Add("@Like", request.Like);
-                parameters.Add("@Link", request.Link);
-                parameters.Add("@Status", request.Status);
-                parameters.Add("@@PostHastagId", request.PostHashTagId);
-                parameters.Add("@AuthorId", request.AuthorId);
-                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@Content", request.Content);                      
+                parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
-                parameters.Add("@AverageRate", request.AverageRate);
-                parameters.Add("@View", request.View);
+                parameters.Add("@Thumbnail", request.AverageRate);
+              
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
                                       param: parameters,
-                                      sql: "SP_createNewPost",
+                                      sql: "SP_createNewPost2",
                                       commandType: CommandType.StoredProcedure));
             }
             catch (Exception e)
@@ -161,8 +156,7 @@ namespace BaoDienTu.DAL
                 parameters.Add("@Link", request.Link);
                 parameters.Add("@Status", request.Status);
                 parameters.Add("@PostHasTagId", request.PostHashTagId);
-                parameters.Add("@AuthorId", request.AuthorId);
-                parameters.Add("@CategoryId", request.CategoryId);
+                parameters.Add("@AuthorId", request.AuthorId);           
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
                 parameters.Add("@AverageRate", request.AverageRate);
                 parameters.Add("@View", request.View);

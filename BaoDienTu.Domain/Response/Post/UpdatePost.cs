@@ -13,9 +13,9 @@ namespace BaoDienTu.Domain.Response.Post
         public int Like { get; set; }
         public string Link { get; set; }
         public Status Status { get; set; }
-        public int CategoryId { get; set; }
+    
         public int PostHashTagId { get; set; }
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public int SubCategoryId { get; set; }
         public int View { get; set; }
         public bool IsDeleted { get; set; }
