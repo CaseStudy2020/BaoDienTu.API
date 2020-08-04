@@ -38,6 +38,16 @@ namespace BaoDienTu.BAL
             return await commentRepository.Get(commentId);
         }
 
+        public async Task<IEnumerable<CommentByParentCommentId>> GetListCommentByParentCommentId(int parentCommentId)
+        {
+            return await commentRepository.GetListCommentByParentCommentId(parentCommentId);
+        }
+
+        public async Task<IEnumerable<CommentByPostId>> GetListCommentByPostId(int postId)
+        {
+            return await commentRepository.GetListCommentByPostId(postId);
+        }
+
         public async Task<UpdateCommentResult> Update(UpdateComment request)
         {
             return await commentRepository.Update(request);

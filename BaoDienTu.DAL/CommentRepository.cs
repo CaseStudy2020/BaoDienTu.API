@@ -84,6 +84,26 @@ namespace BaoDienTu.DAL
                                 commandType: CommandType.StoredProcedure));
         }
 
+        public async Task<IEnumerable<CommentByParentCommentId>> GetListCommentByParentCommentId(int parentCommentId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@ParentCommentId", parentCommentId);
+            return (await SqlMapper.QueryAsync<CommentByParentCommentId>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getListCommentByParentCommentId",
+                                commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<IEnumerable<CommentByPostId>> GetListCommentByPostId(int postId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@PostId", postId);
+            return (await SqlMapper.QueryAsync<CommentByPostId>(cnn: conn,
+                                param: parameters,
+                                sql: "SP_getListCommentByPostId",
+                                commandType: CommandType.StoredProcedure));
+        }
+
         public async Task<UpdateCommentResult> Update(UpdateComment request)
         {
             try

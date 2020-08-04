@@ -17,6 +17,7 @@ namespace BaoDienTu.DAL.Interface
 
         Task<CreateCategoryResult> Create(CreateCategory request);
         Task<UpdateCategoryResult> Update(UpdateCategory request);
-      
+       
+
     }
 }

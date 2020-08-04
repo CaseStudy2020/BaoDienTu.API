@@ -27,6 +27,19 @@ namespace BaoDienTu.API.Controllers
         {
             return await commentService.Get(id);
         }
+        [HttpGet]
+        [Route("/api/comment/getListCommentByPostId/{postId}")]
+        public async Task<IEnumerable<CommentByPostId>> GetListCommentByPostId(int postId)
+        {
+            return await commentService.GetListCommentByPostId(postId);
+        }
+        [HttpGet]
+        [Route("/api/comment/getListCommentByParentCommentId/{parentCommentId}")]
+        public async Task<IEnumerable<CommentByParentCommentId>> GetListCommentByParentCommentId(int parentCommentId)
+        {
+            return await commentService.GetListCommentByParentCommentId(parentCommentId);
+        }
+
         [HttpPost]
         [Route("/api/comment/create")]
         public async Task<CreateCommentResult> Create(CreateComment request)
@@ -51,5 +64,7 @@ namespace BaoDienTu.API.Controllers
         {
             return await commentService.Delete(id);
         }
+
+
     }
 }
