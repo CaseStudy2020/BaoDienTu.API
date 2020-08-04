@@ -13,5 +13,6 @@ namespace BaoDienTu.Domain.Response.Comment
         public DateTime DateCreated { get; set; }
         public int ParentCommentId { get; set; }
         public bool IsDeleted { get; set; }
+
     }
 }
