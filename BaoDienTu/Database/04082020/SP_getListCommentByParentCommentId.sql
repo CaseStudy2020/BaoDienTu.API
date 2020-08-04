@@ -18,18 +18,19 @@ BEGIN
     IF EXISTS ( select 1 from dbo.Comment c where c.CommentId = @ParentCommentId)
     BEGIN
         SET @message = 'Found'
-        SELECT *, @message as [Message] FROM dbo.Comment c WHERE (c.ParentCommentId = @ParentCommentId and c.isDeleted = 0 and c.[status] = 0 )
+        SELECT *, @message as [Message] 
+        FROM dbo.Comment c 
+        WHERE (c.ParentCommentId = @ParentCommentId and c.isDeleted = 0 and c.[status] = 0 )
+        ORDER BY c.DateCreated asc
     END
     ;
     ELSE
         SELECT @message as [Message]
     ;
 END
-   
 GO
-
 -- example to execute the stored procedure we just created
-EXECUTE dbo.SP_getListCommentByParentCommentId 1
+EXECUTE dbo.SP_getListCommentByParentCommentId 12
 GO
 
 
