@@ -17,6 +17,6 @@ namespace BaoDienTu.Domain
         public string FullName { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
-        public string FullName { get; set; }
+        
     }
 }
