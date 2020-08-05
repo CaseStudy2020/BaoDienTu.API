@@ -14,5 +14,6 @@ namespace BaoDienTu.Domain.Request.Account
         public DateTime DoB { get; set; }
         public string Avatar { get; set; }
         public string Address { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }
