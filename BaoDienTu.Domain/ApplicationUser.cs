@@ -14,6 +14,7 @@ namespace BaoDienTu.Domain
         public string   Address { get; set; }
         public bool IsDeleted { get; set; }
         [DataType(DataType.Date)]
+        public string FullName { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public string FullName { get; set; }
