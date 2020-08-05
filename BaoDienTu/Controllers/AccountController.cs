@@ -73,7 +73,7 @@ namespace BaoDienTu.API.Controllers
                 Gender=request.Gender,
                 Avatar=request.Avatar,
                 Address=request.Address,
-                DateCreated=request.DateCreated
+                DateCreated= DateTime.Now
             };
             var registerResult = await userManager.CreateAsync(user, request.Password);
             if (registerResult.Succeeded)
