@@ -69,6 +69,7 @@ namespace BaoDienTu.API.Controllers
                 Email = request.Email,
                 UserName = request.Email,
                 DoB=request.DoB,
+                PhoneNumber=request.PhoneNumber,
                 FullName=request.FullName,
                 Gender=request.Gender,
                 Avatar=request.Avatar,
