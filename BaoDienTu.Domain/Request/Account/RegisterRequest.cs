@@ -8,6 +8,7 @@ namespace BaoDienTu.Domain.Request.Account
     {
         public string Email { get; set; }
         public string Password { get; set; }
+        public string FullName { get; set; }
         public bool Gender { get; set; }
         public DateTime DoB { get; set; }
         public string Avatar { get; set; }
