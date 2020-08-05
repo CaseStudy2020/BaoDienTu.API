@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BaoDienTu.Domain;
 using BaoDienTu.Domain.Request.Account;
 using BaoDienTu.Domain.Response.Account;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +20,17 @@ namespace BaoDienTu.API.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IWebHostEnvironment webHostEnvironment;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                     SignInManager<ApplicationUser> signInManager,
-                                    RoleManager<IdentityRole> roleManager)
+                                    RoleManager<IdentityRole> roleManager,
+                                    IWebHostEnvironment webHostEnvironment)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
+            this.webHostEnvironment = webHostEnvironment;
         }
         [HttpPost]
         [Route("/api/account/login")]
@@ -72,10 +77,24 @@ namespace BaoDienTu.API.Controllers
                 PhoneNumber=request.PhoneNumber,
                 FullName=request.FullName,
                 Gender=request.Gender,
-                Avatar=request.Avatar,
+               
                 Address=request.Address,
                 DateCreated= DateTime.Now
             };
+            var fileName = string.Empty;
+            if (request.Avatar != null)
+            {
+                string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
+                fileName = $"{Guid.NewGuid()}_{request.Avatar.FileName}";
+                var filePath = Path.Combine(uploadFolder, fileName);
+                using (var fs = new FileStream(filePath, FileMode.Create))
+                {
+                    request.Avatar.CopyTo(fs);
+                }
+            }
+            user.Avatar = fileName;
+
+
             var registerResult = await userManager.CreateAsync(user, request.Password);
             if (registerResult.Succeeded)
             {
@@ -83,6 +102,6 @@ namespace BaoDienTu.API.Controllers
                 result.Success = registerResult.Succeeded;
             }
             return result;
-        }
+        }      
     }
 }
