@@ -17,5 +17,12 @@ namespace BaoDienTu.Domain.Request.Account
         [Compare("Password", ErrorMessage = "Confirm password not match")]
         [Display(Name = "Confirm password")]
         public string ConfirmPassword { get; set; }
+
+        public bool Gender { get; set; }
+        public DateTime DoB { get; set; }
+        public string Avatar { get; set; }
+        public string Address { get; set; }
+        public string FullName { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }

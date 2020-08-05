@@ -64,10 +64,12 @@ namespace BaoDienTu.API.Controllers
             };
 
             var user = new ApplicationUser()
-            {
+            {   
+                
                 Email = request.Email,
                 UserName = request.Email,
                 DoB=request.DoB,
+                FullName=request.FullName,
                 Gender=request.Gender,
                 Avatar=request.Avatar,
                 Address=request.Address,
