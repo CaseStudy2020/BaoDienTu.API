@@ -14,7 +14,7 @@ namespace BaoDienTu.Domain.Response.Post
         public int NumberOfComment { get; set; }
         public string Thumbnail { get; set; }
         public int View { get; set; }
-        public string  ShortContent { get; set; }
+        public string ShortContent { get; set; }
         public int Like { get; set; }
     }
 }
