@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using BaoDienTu.Domain.Enum;
 namespace BaoDienTu.Domain.Response.Comment
 {
     public class CommentByParentCommentId
@@ -13,5 +13,7 @@ namespace BaoDienTu.Domain.Response.Comment
         public DateTime DateCreated { get; set; }
         public int ParentCommentId { get; set; }
         public bool IsDeleted { get; set; }
+        public Status Status { get; set; }
+        public string Message { get; set; }
     }
 }

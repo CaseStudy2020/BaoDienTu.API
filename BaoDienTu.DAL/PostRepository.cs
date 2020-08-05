@@ -76,7 +76,7 @@ namespace BaoDienTu.DAL
             parameters.Add("@SubCategoryId", subCategoryId);
             return (await SqlMapper.QueryAsync<PostBySubCategoryId>(cnn: conn,
                                 param: parameters,
-                                sql: "SP_getPostBySubCategoryId",
+                                sql: "SP_getListPostBySubCategoryId",
                                 commandType: CommandType.StoredProcedure));
         }
 

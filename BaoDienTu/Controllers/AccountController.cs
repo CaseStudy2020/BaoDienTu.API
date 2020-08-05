@@ -66,7 +66,12 @@ namespace BaoDienTu.API.Controllers
             var user = new ApplicationUser()
             {
                 Email = request.Email,
-                UserName = request.Email
+                UserName = request.Email,
+                DoB=request.DoB,
+                Gender=request.Gender,
+                Avatar=request.Avatar,
+                Address=request.Address,
+                DateCreated=request.DateCreated
             };
             var registerResult = await userManager.CreateAsync(user, request.Password);
             if (registerResult.Succeeded)
