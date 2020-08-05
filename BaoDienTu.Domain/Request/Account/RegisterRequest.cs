@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace BaoDienTu.Domain.Request.Account
         public string FullName { get; set; }
         public bool Gender { get; set; }
         public DateTime DoB { get; set; }
-        public string Avatar { get; set; }
+        public IFormFile Avatar { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
     }
