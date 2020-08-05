@@ -33,5 +33,9 @@
     <ProjectReference Include="..\BaoDienTu.Domain\BaoDienTu.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Database\04082020\" />
+  </ItemGroup>
+
 
 </Project>

@@ -43,6 +43,8 @@ namespace BaoDienTu
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
             services.AddScoped<ISubCategoryService, SubCategoryService>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentService, CommentService>();
             services.AddSwaggerGen();
         }
 
