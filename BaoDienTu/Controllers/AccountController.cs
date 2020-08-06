@@ -77,23 +77,10 @@ namespace BaoDienTu.API.Controllers
                 PhoneNumber=request.PhoneNumber,
                 FullName=request.FullName,
                 Gender=request.Gender,
-               
+                Avatar=request.Avatar,
                 Address=request.Address,
                 DateCreated= DateTime.Now
             };
-            var fileName = string.Empty;
-            if (request.Avatar != null)
-            {
-                string uploadFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
-                fileName = $"{Guid.NewGuid()}_{request.Avatar.FileName}";
-                var filePath = Path.Combine(uploadFolder, fileName);
-                using (var fs = new FileStream(filePath, FileMode.Create))
-                {
-                    request.Avatar.CopyTo(fs);
-                }
-            }
-            user.Avatar = fileName;
-
 
             var registerResult = await userManager.CreateAsync(user, request.Password);
             if (registerResult.Succeeded)

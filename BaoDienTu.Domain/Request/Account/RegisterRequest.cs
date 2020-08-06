@@ -13,7 +13,7 @@ namespace BaoDienTu.Domain.Request.Account
         public string FullName { get; set; }
         public bool Gender { get; set; }
         public DateTime DoB { get; set; }
-        public IFormFile Avatar { get; set; }
+        public string Avatar { get; set; }
         public string Address { get; set; }
        
     }
