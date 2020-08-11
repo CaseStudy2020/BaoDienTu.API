@@ -33,9 +33,5 @@
     <ProjectReference Include="..\BaoDienTu.Domain\BaoDienTu.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="StoreProcedure\11082020\" />
-  </ItemGroup>
-
 
 </Project>
