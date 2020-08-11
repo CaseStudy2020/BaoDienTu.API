@@ -18,7 +18,9 @@ IF ( EXISTS( select 1 from dbo.AspNetUsers u where u.Id = @UserId)
     and EXISTS( select 1 from dbo.History h where h.UserId = @UserId))
     BEGIN
         SET @message = 'Success'
-        SELECT @message as [Message], * from dbo.History h WHERE h.UserId = @UserId
+        SELECT @message as [Message], p.PostId, p.DateCreated, p.Title,p.Thumbnail,p.[Like],p.Link,p.[View]
+        FROM dbo.History h INNER JOIN dbo.Post p ON h.PostId = p.PostId 
+        ORDER BY p.DateCreated
     END
 ;
 ELSE
