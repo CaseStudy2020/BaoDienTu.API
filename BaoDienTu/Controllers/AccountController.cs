@@ -89,6 +89,7 @@ namespace BaoDienTu.API.Controllers
                 result.Success = registerResult.Succeeded;
             }
             return result;
-        }      
+        }
+      
     }
 }
