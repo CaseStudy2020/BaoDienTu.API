@@ -45,6 +45,14 @@ namespace BaoDienTu.Controllers
         {
             return await postService.Gets5FastInfoPost();
         }
+
+        [HttpGet]
+        [Route("/api/post/GetsTop5LastestPost")]
+        public async Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost()
+        {
+            return await postService.GetsTop5LastestPost();
+        }
+
         [HttpGet]
         [Route("/api/post/GetTop10MostViewOfDay")]
         public async Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay()

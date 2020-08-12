@@ -53,6 +53,11 @@ namespace BaoDienTu.BAL
             return await postRepository.Gets5FastInfoPost();
         }
 
+        public async Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost()
+        {
+            return await postRepository.GetsTop5LastestPost();
+        }
+
         public async Task<IEnumerable<FastInfoPostView>> GetsFastInfoPost()
         {
             return await postRepository.GetsFastInfoPost();

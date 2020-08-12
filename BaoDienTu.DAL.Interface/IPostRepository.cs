@@ -21,6 +21,6 @@ namespace BaoDienTu.DAL.Interface
         Task<IEnumerable<PostBySubCategoryId>> GetPostBySubCategoryId(int subCategoryId);
         Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost);
         Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay();
-        
+        Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost();
     }
 }

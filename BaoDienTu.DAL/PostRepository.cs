@@ -89,6 +89,10 @@ namespace BaoDienTu.DAL
         {
             return await SqlMapper.QueryAsync<Fast5InfoPostView>(conn, "SP_get5FastInfoPost", CommandType.StoredProcedure);
         }
+        public async Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost()
+        {
+            return await SqlMapper.QueryAsync<Top5LastestPost>(conn, "SP_getTop5LastestPost", CommandType.StoredProcedure);
+        }
 
         public async Task<IEnumerable<FastInfoPostView>> GetsFastInfoPost()
         {
