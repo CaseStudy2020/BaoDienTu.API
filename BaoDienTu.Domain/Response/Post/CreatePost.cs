@@ -18,7 +18,7 @@ namespace BaoDienTu.Domain.Response.Post
         public string AuthorId { get; set; }
         public int SubCategoryId { get; set; }
         public int View { get; set; }
-
+        public string Thumbnail { get; set; }
         public decimal AverageRate { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace BaoDienTu.DAL
                 parameters.Add("@Content", request.Content);                      
                 parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
-                parameters.Add("@Thumbnail", request.AverageRate);
+                parameters.Add("@Thumbnail", request.Thumbnail);
               
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
@@ -161,6 +161,7 @@ namespace BaoDienTu.DAL
                 parameters.Add("@AverageRate", request.AverageRate);
                 parameters.Add("@View", request.View);
                 parameters.Add("@IsDeleted", request.IsDeleted);
+                parameters.Add("@Thumbnail", request.Thumbnail);
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<UpdatePostResult>(cnn: conn,
                                       param: parameters,
