@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BaoDienTu.BAL.Interface;
 using BaoDienTu.Domain;
 using BaoDienTu.Domain.Request.Account;
 using BaoDienTu.Domain.Response.Account;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +21,21 @@ namespace BaoDienTu.API.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IAccountService accountService;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                     SignInManager<ApplicationUser> signInManager,
-                                    RoleManager<IdentityRole> roleManager)
+                                    RoleManager<IdentityRole> roleManager,
+                                    IWebHostEnvironment webHostEnvironment,
+                                    IAccountService accountService
+                                    )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
+            this.webHostEnvironment = webHostEnvironment;
+            this.accountService = accountService;
         }
         [HttpPost]
         [Route("/api/account/login")]
@@ -76,6 +86,7 @@ namespace BaoDienTu.API.Controllers
                 Address=request.Address,
                 DateCreated= DateTime.Now
             };
+
             var registerResult = await userManager.CreateAsync(user, request.Password);
             if (registerResult.Succeeded)
             {
@@ -84,5 +95,18 @@ namespace BaoDienTu.API.Controllers
             }
             return result;
         }
+        [HttpGet]
+        [Route("/api/account/getUserByUserId/{userId}")]
+        public async Task<GetUserByUserIdResult> GetUserByUserId(string userId)
+        {
+            return await accountService.GetUserByUserId(userId);
+        }
+        [HttpPost]
+        [Route("/api/account/update")]
+        public async Task<UpdateUserResult> Update(UpdateUser request)
+        {
+            return await accountService.Update(request);
+        }
+
     }
 }
