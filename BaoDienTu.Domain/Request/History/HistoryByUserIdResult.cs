@@ -16,6 +16,7 @@ namespace BaoDienTu.Domain.Request.History
         public int Like { get; set; }
         public string Link { get; set; }
         public int View { get; set; }
+
         public DateTime DateView { get; set; }
     }
 }

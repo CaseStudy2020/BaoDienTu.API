@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using BaoDienTu.BAL.Interface;
 using BaoDienTu.Domain;
 using BaoDienTu.Domain.Request.Account;
 using BaoDienTu.Domain.Response.Account;
@@ -21,16 +22,20 @@ namespace BaoDienTu.API.Controllers
         private readonly SignInManager<ApplicationUser> signInManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IWebHostEnvironment webHostEnvironment;
+        private readonly IAccountService accountService;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                     SignInManager<ApplicationUser> signInManager,
                                     RoleManager<IdentityRole> roleManager,
-                                    IWebHostEnvironment webHostEnvironment)
+                                    IWebHostEnvironment webHostEnvironment,
+                                    IAccountService accountService
+                                    )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
             this.webHostEnvironment = webHostEnvironment;
+            this.accountService = accountService;
         }
         [HttpPost]
         [Route("/api/account/login")]
@@ -90,6 +95,12 @@ namespace BaoDienTu.API.Controllers
             }
             return result;
         }
-      
+        [HttpGet]
+        [Route("/api/account/getUserByUserId/{userId}")]
+        public async Task<GetUserByUserIdResult> GetUserByUserId(string userId)
+        {
+            return await accountService.GetUserByUserId(userId);
+        }
+
     }
 }

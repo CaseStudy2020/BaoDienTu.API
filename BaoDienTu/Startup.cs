@@ -47,6 +47,8 @@ namespace BaoDienTu
             services.AddScoped<ICommentService, CommentService>();
             services.AddScoped<IHistoryService, HistoryService>();
             services.AddScoped<IHistoryRepository, HistoryRepository>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddSwaggerGen();
         }
 
