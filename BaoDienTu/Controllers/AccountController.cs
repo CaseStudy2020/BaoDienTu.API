@@ -101,6 +101,12 @@ namespace BaoDienTu.API.Controllers
         {
             return await accountService.GetUserByUserId(userId);
         }
+        [HttpPost]
+        [Route("/api/account/update")]
+        public async Task<UpdateUserResult> Update(UpdateUser request)
+        {
+            return await accountService.Update(request);
+        }
 
     }
 }
