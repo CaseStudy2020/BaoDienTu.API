@@ -72,6 +72,7 @@ namespace BaoDienTu
             });
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
