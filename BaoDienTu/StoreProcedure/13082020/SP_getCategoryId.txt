@@ -1,0 +1,22 @@
+﻿
+GO
+/****** Object:  StoredProcedure [dbo].[SP_getCategoryId]    Script Date: 8/13/2020 9:03:02 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Huynh Thao Nguyen
+-- Create date: 2020-07-29
+-- Description:	get all Category
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_getCategoryId]
+   @CategoryId INT 
+AS
+    
+    SELECT c.CategoryId,
+	c.CategoryName,
+	(Select COUNT(*) FROM SubCategory s WHERE s.CategoryId = c.CategoryId)As SoLuong
+	FROM Category c
+	WHERE  @CategoryId =c.CategoryId  AND c.IsDeleted=0
+	 

@@ -6,6 +6,6 @@ namespace BaoDienTu.Domain
 {
     public class Common
     {
-        public static string ConnectionString = @"Data Source=vshine\sqlexpress;Initial Catalog=Online-Newspaper-DB;Integrated Security=True";
+        public static string ConnectionString  = @"Data Source=desktop-b8n6v6g\sqlexpress;Initial Catalog=baodientu;Integrated Security=True";
     }
 }

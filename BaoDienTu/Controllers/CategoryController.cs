@@ -33,17 +33,23 @@ namespace BaoDienTu.API.Controllers
         {
             return await categoryService.Create(request);
         }
-        [HttpPost]
-        [Route("/api/category/update")]
-        public async Task<UpdateCategoryResult> Update(UpdateCategory request)
-        {
-            return await categoryService.Update(request);
-        }
+        //[HttpPost]
+        //[Route("/api/category/update")]
+        //public async Task<UpdateCategoryResult> Update(UpdateCategory request)
+        //{
+        //    return await categoryService.Update(request);
+        //}
         [HttpDelete]
         [Route("/api/category/delete/{id}")]
         public async Task<DeleteCategoryResult> Delete(int id)
         {
             return await categoryService.Delete(id);
+        }
+        [HttpGet]
+        [Route("/api/category/get/{id}")]
+        public async Task<Category> Get(int id)
+        {
+            return await categoryService.Get(id);
         }
     }
 }

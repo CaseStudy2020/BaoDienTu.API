@@ -16,7 +16,8 @@ namespace BaoDienTu.DAL.Interface
         Task<DeleteCategoryResult> Delete(int categoryId);
 
         Task<CreateCategoryResult> Create(CreateCategory request);
-        Task<UpdateCategoryResult> Update(UpdateCategory request);
+        Task<Category> Get(int id);
+        //Task<UpdateCategoryResult> Update(UpdateCategory request);
        
 
     }

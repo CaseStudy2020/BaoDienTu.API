@@ -1,0 +1,54 @@
+﻿
+GO
+/****** Object:  StoredProcedure [dbo].[sp_SaveCategory]    Script Date: 8/13/2020 8:54:21 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+-- =============================================
+-- Author:		Xuan Cuong
+-- Create date: 8/13/2020
+-- Description:	create/update saveCategory
+-- =============================================
+ALTER PROCEDURE [dbo].[sp_SaveCategory]
+	@CategoryId INT,
+	@CategoryName NVARCHAR(50)
+AS
+BEGIN
+	DECLARE @Message NVARCHAR(200) = 'Something went wrong, please try again!'
+	BEGIN TRY
+		--Create new Department
+		IF(@CategoryId IS NULL OR @CategoryId = 0)
+		BEGIN
+
+INSERT INTO [dbo].[Category]
+           ([CategoryName])
+     VALUES
+           (@CategoryName)
+						
+			SET @CategoryId = SCOPE_IDENTITY()
+			SET @Message = 'Category has been created successfully!'
+
+		END
+		ELSE --Update Department by Id
+		BEGIN
+
+       UPDATE [dbo].[Category]
+       SET [CategoryName] = @CategoryName
+
+   WHERE @CategoryId = CategoryId
+
+			 SET @Message = 'Category has been updated successfully!'
+		END
+
+		SELECT @CategoryId AS CategoryId, @Message AS [Message]
+
+	END TRY
+	BEGIN CATCH
+		SET @CategoryId = 0
+		SELECT @CategoryId AS CategoryId, @Message AS [Message]
+	END CATCH
+END
