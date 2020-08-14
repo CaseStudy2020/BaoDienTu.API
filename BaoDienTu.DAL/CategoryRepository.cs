@@ -17,7 +17,7 @@ namespace BaoDienTu.DAL
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
-
+                parameters.Add(@"CategoryId", request.CategoryId);
                 parameters.Add("@CategoryName", request.CategoryName);
                
 
@@ -39,7 +39,7 @@ namespace BaoDienTu.DAL
         public async Task<DeleteCategoryResult> Delete(int categoryId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CategoryId", categoryId);
+            parameters.Add(@"CategoryId", categoryId);
             return (await SqlMapper.QueryFirstOrDefaultAsync<DeleteCategoryResult>(cnn: conn,
                              param: parameters,
                             sql: "SP_softDeleteCategoryById",
@@ -49,7 +49,7 @@ namespace BaoDienTu.DAL
         public async Task<Category> Get(int id)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CategoryId", id);
+            parameters.Add(@"CategoryId", id);
             return (await SqlMapper.QueryFirstOrDefaultAsync<Category>(cnn: conn,
                              param: parameters,
                             sql: "SP_getCategoryId",
