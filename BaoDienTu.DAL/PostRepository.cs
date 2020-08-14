@@ -23,12 +23,12 @@ namespace BaoDienTu.DAL
                 parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
                 parameters.Add("@Thumbnail", request.Thumbnail);
-                parameters.Add("@CategoryId", request.CategoryId);
+                
 
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
                                       param: parameters,
-                                      sql: "SP_createNewPost2",
+                                      sql: "SP_createNewPost",
                                       commandType: CommandType.StoredProcedure));
             }
             catch (Exception e)
@@ -181,6 +181,18 @@ namespace BaoDienTu.DAL
                     Message = "Something went wrong, please try again"
                 };
             }
+        }
+
+       
+
+        public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@CategoryId", categoryId);
+            return (await SqlMapper.QueryAsync<Top3LastestPostByCategoryId>(cnn: conn,
+                                param: parameters,
+                                sql: "Get3PostByCategoryId",
+                                commandType: CommandType.StoredProcedure));
         }
     }
 }

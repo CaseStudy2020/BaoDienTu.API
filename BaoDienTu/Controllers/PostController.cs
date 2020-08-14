@@ -73,6 +73,12 @@ namespace BaoDienTu.Controllers
             return await postService.GetPostByCategoryId(categoryId);
         }
         [HttpGet]
+        [Route("/api/post/getTop3LastestPostByCategoryId/{categoryId}")]
+        public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
+        {
+            return await postService.GetsTop3LastestPostByCategoryId(categoryId);
+        }
+        [HttpGet]
         [Route("/api/post/getBySubCategoryId/{subCategoryId}")]
         public async Task<IEnumerable<PostBySubCategoryId>> GetPostBySubCategoryId(int subCategoryId)
         {

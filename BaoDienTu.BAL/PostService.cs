@@ -82,5 +82,10 @@ namespace BaoDienTu.BAL
         {
             return await postRepository.Update(request);
         }
+
+        public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
+        {
+            return await postRepository.GetsTop3LastestPostByCategoryId(categoryId);
+        }
     }
 }

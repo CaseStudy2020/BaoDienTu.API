@@ -22,6 +22,7 @@ namespace BaoDienTu.BAL.Interface
         Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost);
         Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay();
         Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost();
+        Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId);
 
     }
 }
