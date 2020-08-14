@@ -1,0 +1,22 @@
+﻿GO
+/****** Object:  StoredProcedure [dbo].[SP_getSubCategoryId]    Script Date: 8/14/2020 2:35:04 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Huynh Thao Nguyen
+-- Create date: 2020-07-29
+-- Description:	get all Category
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_getSubCategoryId]
+   @SubCategoryId INT
+AS
+
+SELECT [SubCategoryId]
+      ,[SubCategoryName]
+      ,[CategoryId]
+      
+  FROM [dbo].[SubCategory]
+
+WHERE @SubCategoryId = SubCategoryId
