@@ -8,6 +8,7 @@
 - Git client
 - Visual Studio 2019
 - SQL Server 2019
+- https://github.com/CaseStudy2020/BaoDienTu.API/tree/Develope/BaoDienTu/Database
 ## 👤Các tác giả
 - Hoàng Bách Hiệp - https://github.com/HiepHoang2190
 - Lê Quang Vũ - https://github.com/vshine94
