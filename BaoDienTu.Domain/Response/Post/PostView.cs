@@ -20,5 +20,6 @@ namespace BaoDienTu.Domain.Response.Post
         public int View { get; set; }
         public string DateCreated { get; set; }
         public decimal AverageRate { get; set; }
+        public int CategoryId { get; set; }
     }
 }

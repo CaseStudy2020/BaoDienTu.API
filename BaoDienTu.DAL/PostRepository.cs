@@ -23,7 +23,8 @@ namespace BaoDienTu.DAL
                 parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
                 parameters.Add("@Thumbnail", request.Thumbnail);
-              
+                parameters.Add("@CategoryId", request.CategoryId);
+
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
                                       param: parameters,
