@@ -6,6 +6,6 @@ namespace BaoDienTu.Domain
 {
     public class Common
     {
-        public static string ConnectionString  = @"Data Source=DESKTOP-FF1278R;Initial Catalog=baodientu;Integrated Security=True";
+        public static string ConnectionString  = @"Data Source=DESKTOP-FF1278R;Initial Catalog=Online-Newspaper-DB;Integrated Security=True";
     }
 }
