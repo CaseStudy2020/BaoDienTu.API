@@ -8,6 +8,5 @@ namespace BaoDienTu.Domain.Response.Category
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public string Message { get; set; }
     }
 }

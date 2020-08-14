@@ -12,7 +12,7 @@ namespace BaoDienTu.DAL.Interface
 {
     public interface ISubCategoryRepository
     {
-
+        Task<SubCategory> Get(int id);
         Task<DeleteSubCategoryResult> Delete(int subCategoryId);
 
         Task<CreateSubCategoryResult> Create(CreateSubCategory request);

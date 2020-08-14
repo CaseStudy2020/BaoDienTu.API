@@ -11,7 +11,8 @@ namespace BaoDienTu.BAL.Interface
     {
         Task<IEnumerable<CategoryView>> Gets();
         Task<CreateCategoryResult> Create(CreateCategory request);
-        Task<UpdateCategoryResult> Update(UpdateCategory request);
+        //Task<UpdateCategoryResult> Update(UpdateCategory request);
         Task<DeleteCategoryResult> Delete(int categoryId);
+        Task<Category> Get(int id);
     }
 }

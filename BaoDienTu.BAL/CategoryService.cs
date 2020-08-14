@@ -28,14 +28,19 @@ namespace BaoDienTu.BAL
             return await categoryRepository.Delete(categoryId);
         }
 
+        public async Task<Category> Get(int id)
+        {
+            return await categoryRepository.Get(id);
+        }
+
         public async Task<IEnumerable<CategoryView>> Gets()
         {
             return await categoryRepository.Gets();
         }
 
-        public async Task<UpdateCategoryResult> Update(UpdateCategory request)
-        {
-            return await categoryRepository.Update(request);
-        }
+        //public async Task<UpdateCategoryResult> Update(UpdateCategory request)
+        //{
+        //    return await categoryRepository.Update(request);
+        //}
     }
 }

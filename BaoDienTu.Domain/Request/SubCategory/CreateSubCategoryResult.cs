@@ -9,6 +9,6 @@ namespace BaoDienTu.Domain.Request.SubCategory
         public int CategoryId { get; set; }
         public string Message { get; set; }
         public string SubCategoryName { get; set; }
-        public int SubCategoryId { get; set; }
+        public int SubCategoryId {  get; set; }
     }
 }
