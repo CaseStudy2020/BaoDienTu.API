@@ -13,5 +13,6 @@ namespace BaoDienTu.BAL.Interface
         Task<CreateSubCategoryResult> Create(CreateSubCategory request);
         Task<DeleteSubCategoryResult> Delete(int subCategoryId);
         Task<UpdateSubCategoryResult> Update(UpdateSubCategory request);
+        Task<SubCategory> Get(int id);
     }
 }

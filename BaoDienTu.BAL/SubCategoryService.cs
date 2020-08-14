@@ -28,6 +28,11 @@ namespace BaoDienTu.BAL
             return await subCategoryRepository.Delete(subCategoryId);
         }
 
+        public async Task<SubCategory> Get(int id)
+        {
+            return await subCategoryRepository.Get(id);
+        }
+
         public async Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId)
         {
             return await subCategoryRepository.GetPostByCategoryId(categoryId);

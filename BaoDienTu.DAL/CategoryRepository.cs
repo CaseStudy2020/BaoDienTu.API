@@ -17,13 +17,13 @@ namespace BaoDienTu.DAL
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
-
+                parameters.Add(@"CategoryId", request.CategoryId);
                 parameters.Add("@CategoryName", request.CategoryName);
                
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreateCategoryResult>(cnn: conn,
                                       param: parameters,
-                                      sql: "SP_createCategory",
+                                      sql: "sp_SaveCategory",
                                       commandType: CommandType.StoredProcedure));
             }
             catch (Exception e)
@@ -39,10 +39,20 @@ namespace BaoDienTu.DAL
         public async Task<DeleteCategoryResult> Delete(int categoryId)
         {
             DynamicParameters parameters = new DynamicParameters();
-            parameters.Add("@CategoryId", categoryId);
+            parameters.Add(@"CategoryId", categoryId);
             return (await SqlMapper.QueryFirstOrDefaultAsync<DeleteCategoryResult>(cnn: conn,
                              param: parameters,
                             sql: "SP_softDeleteCategoryById",
+                            commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<Category> Get(int id)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add(@"CategoryId", id);
+            return (await SqlMapper.QueryFirstOrDefaultAsync<Category>(cnn: conn,
+                             param: parameters,
+                            sql: "SP_getCategoryId",
                             commandType: CommandType.StoredProcedure));
         }
 
@@ -51,28 +61,28 @@ namespace BaoDienTu.DAL
             return await SqlMapper.QueryAsync<CategoryView>(conn, "SP_getAllCategory", CommandType.StoredProcedure);
         }
 
-        public async Task<UpdateCategoryResult> Update(UpdateCategory request)
-        {
-            try
-            {
-                DynamicParameters parameters = new DynamicParameters();
-                parameters.Add("@CategoryId", request.CategoryId);
-                parameters.Add("@CategoryName", request.CategoryName);
+        //public async Task<UpdateCategoryResult> Update(UpdateCategory request)
+        //{
+        //    try
+        //    {
+        //        DynamicParameters parameters = new DynamicParameters();
+        //        parameters.Add("@CategoryId", request.CategoryId);
+        //        parameters.Add("@CategoryName", request.CategoryName);
 
 
-                return (await SqlMapper.QueryFirstOrDefaultAsync<UpdateCategoryResult>(cnn: conn,
-                                      param: parameters,
-                                      sql: "SP_editCategory",
-                                      commandType: CommandType.StoredProcedure));
-            }
-            catch (Exception e)
-            {
-                return new UpdateCategoryResult()
-                {
-                    CategoryId = 0,
-                    Message = "Something went wrong, please try again"
-                };
-            }
-        }
+        //        return (await SqlMapper.QueryFirstOrDefaultAsync<UpdateCategoryResult>(cnn: conn,
+        //                              param: parameters,
+        //                              sql: "SP_editCategory",
+        //                              commandType: CommandType.StoredProcedure));
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return new UpdateCategoryResult()
+        //        {
+        //            CategoryId = 0,
+        //            Message = "Something went wrong, please try again"
+        //        };
+        //    }
+        //}
     }
 }
