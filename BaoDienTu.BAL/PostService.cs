@@ -2,8 +2,10 @@
 using BaoDienTu.DAL.Interface;
 using BaoDienTu.Domain.Request.Post;
 using BaoDienTu.Domain.Response.Post;
+using BaoDienTu.Domain.Response.Search;
 using System;
 using System.Collections.Generic;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,6 +83,21 @@ namespace BaoDienTu.BAL
         public async Task<UpdatePostResult> Update(UpdatePost request)
         {
             return await postRepository.Update(request);
+        }
+
+        public async Task<List<SearchPost>> Search(string keyword)
+        {
+            return await postRepository.Search(keyword);
+        }
+
+        public async Task<SearchPost> SearchContent(string keyword)
+        {
+            return await postRepository.SearchContent(keyword);
+        }
+
+        public async Task<SearchPost> SearchDate(string keyword)
+        {
+            return await postRepository.SearchDate(keyword);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BaoDienTu.Domain.Request.Post;
 using BaoDienTu.Domain.Response.Post;
+using BaoDienTu.Domain.Response.Search;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,5 +23,8 @@ namespace BaoDienTu.DAL.Interface
         Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost);
         Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay();
         Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost();
+        Task<List<SearchPost>> Search(string keyword);
+        Task<SearchPost> SearchContent(string keyword);
+        Task<SearchPost> SearchDate(string keyword);
     }
 }
