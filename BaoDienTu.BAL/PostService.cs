@@ -85,11 +85,12 @@ namespace BaoDienTu.BAL
             return await postRepository.Update(request);
         }
 
-<<<<<<< HEAD
+
         public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
         {
             return await postRepository.GetsTop3LastestPostByCategoryId(categoryId);
-=======
+
+        }
         public async Task<List<SearchPost>> Search(string keyword)
         {
             return await postRepository.Search(keyword);
@@ -103,7 +104,6 @@ namespace BaoDienTu.BAL
         public async Task<SearchPost> SearchDate(string keyword)
         {
             return await postRepository.SearchDate(keyword);
->>>>>>> origin/cuong-dev
         }
     }
 }

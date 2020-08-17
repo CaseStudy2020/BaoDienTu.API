@@ -25,11 +25,6 @@ namespace BaoDienTu.DAL
                 parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
                 parameters.Add("@Thumbnail", request.Thumbnail);
-<<<<<<< HEAD
-                
-=======
-                //parameters.Add("@CategoryId", request.CategoryId);
->>>>>>> origin/cuong-dev
 
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
@@ -189,8 +184,7 @@ namespace BaoDienTu.DAL
             }
         }
 
-<<<<<<< HEAD
-       
+
 
         public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
         {
@@ -200,7 +194,8 @@ namespace BaoDienTu.DAL
                                 param: parameters,
                                 sql: "Get3PostByCategoryId",
                                 commandType: CommandType.StoredProcedure));
-=======
+        }
+
        public async Task<List<SearchPost>> Search(string keyword)
         {
             DynamicParameters parameters = new DynamicParameters();
@@ -222,7 +217,6 @@ namespace BaoDienTu.DAL
             parameters.Add(@"keyword", keyword);
             return await SqlMapper.QueryFirstOrDefaultAsync<SearchPost>(cnn: conn, sql: "sp_Search24h", param: parameters, commandType: CommandType.StoredProcedure);
                 
->>>>>>> origin/cuong-dev
         }
     }
 }

@@ -23,12 +23,12 @@ namespace BaoDienTu.DAL.Interface
         Task<IEnumerable<TopPostByDay>> GetTopPostByDay(DateTime dateToGet, int numberOfPost);
         Task<IEnumerable<Top10MostViewOfDay>> GetTop10MostViewOfDay();
         Task<IEnumerable<Top5LastestPost>> GetsTop5LastestPost();
-<<<<<<< HEAD
+
         Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId);
-=======
+
         Task<List<SearchPost>> Search(string keyword);
         Task<SearchPost> SearchContent(string keyword);
         Task<SearchPost> SearchDate(string keyword);
->>>>>>> origin/cuong-dev
+
     }
 }
