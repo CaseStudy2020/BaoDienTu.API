@@ -56,7 +56,7 @@ namespace BaoDienTu.DAL
                             commandType: CommandType.StoredProcedure));
         }
 
-        public async Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId)
+        public async Task<IEnumerable<SubByCategoryId>> GetSubByCategoryId(int categoryId)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add(@"CategoryId", categoryId);
@@ -64,6 +64,11 @@ namespace BaoDienTu.DAL
                                 param: parameters,
                                 sql: "SP_getSubcategoryByCategoryId",
                                 commandType: CommandType.StoredProcedure));
+        }
+
+        public async Task<IEnumerable<SubCategoryView>> Gets()
+        {
+            return await SqlMapper.QueryAsync<SubCategoryView>(conn, "SP_getAllSubCategory", CommandType.StoredProcedure);
         }
 
         public async Task<UpdateSubCategoryResult> Update(UpdateSubCategory request)

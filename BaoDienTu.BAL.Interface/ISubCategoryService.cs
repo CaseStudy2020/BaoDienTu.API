@@ -9,7 +9,8 @@ namespace BaoDienTu.BAL.Interface
 {
     public interface ISubCategoryService
     {
-        Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId);
+        Task<IEnumerable<SubCategoryView>> Gets();
+        Task<IEnumerable<SubByCategoryId>> GetSubByCategoryId(int categoryId);
         Task<CreateSubCategoryResult> Create(CreateSubCategory request);
         Task<DeleteSubCategoryResult> Delete(int subCategoryId);
         Task<UpdateSubCategoryResult> Update(UpdateSubCategory request);
