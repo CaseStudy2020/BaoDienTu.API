@@ -33,9 +33,14 @@ namespace BaoDienTu.BAL
             return await subCategoryRepository.Get(id);
         }
 
-        public async Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId)
+        public async Task<IEnumerable<SubByCategoryId>> GetSubByCategoryId(int categoryId)
         {
-            return await subCategoryRepository.GetPostByCategoryId(categoryId);
+            return await subCategoryRepository.GetSubByCategoryId(categoryId);
+        }
+
+        public async Task<IEnumerable<SubCategoryView>> Gets()
+        {
+            return await subCategoryRepository.Gets();
         }
 
         public async Task<UpdateSubCategoryResult> Update(UpdateSubCategory request)

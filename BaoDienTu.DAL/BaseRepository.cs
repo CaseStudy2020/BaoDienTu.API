@@ -12,8 +12,8 @@ namespace BaoDienTu.DAL
         protected IDbConnection conn;
         public BaseRepository()
         {
-            string connectionString = @"Data Source=desktop-b8n6v6g\sqlexpress;Initial Catalog=baodientu;Integrated Security=True";
-            conn = new SqlConnection(connectionString);
+            //string connectionString = @"Data Source=DESKTOP-FF1278R;Initial Catalog=Online-Newspaper-DB;Integrated Security=True";
+            //conn = new SqlConnection(connectionString);
             conn = new SqlConnection(Common.ConnectionString);
         }
     }
