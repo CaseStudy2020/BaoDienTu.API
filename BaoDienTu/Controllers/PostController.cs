@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BaoDienTu.BAL.Interface;
 using BaoDienTu.Domain.Request.Post;
 using BaoDienTu.Domain.Response.Post;
+using BaoDienTu.Domain.Response.Search;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -116,5 +117,24 @@ namespace BaoDienTu.Controllers
         {
             return await postService.Update(request);
         }
+        [HttpGet]
+         [Route("/api/post/search/{keyword}")]
+         public async Task<List<SearchPost>> Search(string keyword)
+        {
+            return await postService.Search(keyword);
+        }
+        [HttpGet]
+        [Route("/api/post/searchcontent/{keyword}")]
+        public async Task<SearchPost> SearchContent(string keyword)
+        {
+            return await postService.SearchContent(keyword);
+        }
+    
+         [HttpGet]
+         [Route("/api/post/searchdate/{keyword}")]
+         public async Task<SearchPost> SearchDate(string keyword)
+         {
+            return await postService.SearchDate(keyword);
+         }
     }
 }

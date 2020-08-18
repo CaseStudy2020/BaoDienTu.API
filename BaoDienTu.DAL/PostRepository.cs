@@ -1,10 +1,12 @@
 ﻿using BaoDienTu.DAL.Interface;
 using BaoDienTu.Domain.Request.Post;
 using BaoDienTu.Domain.Response.Post;
+using BaoDienTu.Domain.Response.Search;
 using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +25,6 @@ namespace BaoDienTu.DAL
                 parameters.Add("@AuthorId", request.AuthorId);             
                 parameters.Add("@SubCategoryId", request.SubCategoryId);
                 parameters.Add("@Thumbnail", request.Thumbnail);
-                
 
 
                 return (await SqlMapper.QueryFirstOrDefaultAsync<CreatePostResult>(cnn: conn,
@@ -183,7 +184,7 @@ namespace BaoDienTu.DAL
             }
         }
 
-       
+
 
         public async Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId)
         {
@@ -193,6 +194,29 @@ namespace BaoDienTu.DAL
                                 param: parameters,
                                 sql: "Get3PostByCategoryId",
                                 commandType: CommandType.StoredProcedure));
+        }
+
+       public async Task<List<SearchPost>> Search(string keyword)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add(@"keyword", keyword);
+            return (await SqlMapper.QueryAsync<SearchPost>(cnn: conn, sql: "sp_SearchTitle", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
+  
+        }
+
+        public async Task<SearchPost> SearchContent(string keyword)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add(@"keyword", keyword);
+            return await SqlMapper.QueryFirstOrDefaultAsync<SearchPost>(cnn: conn, sql: "sp_SearchContent", param: parameters, commandType: CommandType.StoredProcedure);
+        }
+
+        public async Task<SearchPost> SearchDate(string keyword)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add(@"keyword", keyword);
+            return await SqlMapper.QueryFirstOrDefaultAsync<SearchPost>(cnn: conn, sql: "sp_Search24h", param: parameters, commandType: CommandType.StoredProcedure);
+                
         }
     }
 }
