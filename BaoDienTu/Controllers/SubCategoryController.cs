@@ -22,10 +22,10 @@ namespace BaoDienTu.API.Controllers
         }
 
         [HttpGet]
-        [Route("/api/subcategory/getpostbycategoryid/{categoryId}")]
-        public async Task<IEnumerable<SubByCategoryId>> GetPostByCategoryId(int categoryId)
+        [Route("/api/subcategory/getsubbycategoryid/{categoryId}")]
+        public async Task<IEnumerable<SubByCategoryId>> GetSubByCategoryId(int categoryId)
         {
-            return await subCategoryService.GetPostByCategoryId(categoryId);
+            return await subCategoryService.GetSubByCategoryId(categoryId);
         }
         [HttpPost]
         [Route("/api/subcategory/create")]
@@ -51,6 +51,12 @@ namespace BaoDienTu.API.Controllers
         public async Task<SubCategory> Get(int id)
         {
             return await subCategoryService.Get(id);
+        }
+        [HttpGet]
+        [Route("/api/subcategory/gets")]
+        public async Task<IEnumerable<SubCategoryView>> Gets()
+        {
+            return await subCategoryService.Gets();
         }
     }
 }
