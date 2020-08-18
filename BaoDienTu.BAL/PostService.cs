@@ -96,12 +96,12 @@ namespace BaoDienTu.BAL
             return await postRepository.Search(keyword);
         }
 
-        public async Task<SearchPost> SearchContent(string keyword)
+        public async Task<List<SearchPost>>SearchContent(string keyword)
         {
             return await postRepository.SearchContent(keyword);
         }
 
-        public async Task<SearchPost> SearchDate(string keyword)
+        public async Task<List<SearchPost>> SearchDate(string keyword)
         {
             return await postRepository.SearchDate(keyword);
         }

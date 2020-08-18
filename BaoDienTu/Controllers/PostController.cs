@@ -125,14 +125,14 @@ namespace BaoDienTu.Controllers
         }
         [HttpGet]
         [Route("/api/post/searchcontent/{keyword}")]
-        public async Task<SearchPost> SearchContent(string keyword)
+        public async Task<List<SearchPost>> SearchContent(string keyword)
         {
             return await postService.SearchContent(keyword);
         }
     
          [HttpGet]
          [Route("/api/post/searchdate/{keyword}")]
-         public async Task<SearchPost> SearchDate(string keyword)
+         public async Task<List<SearchPost>> SearchDate(string keyword)
          {
             return await postService.SearchDate(keyword);
          }

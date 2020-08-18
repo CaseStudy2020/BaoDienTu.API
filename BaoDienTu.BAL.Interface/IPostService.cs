@@ -26,8 +26,8 @@ namespace BaoDienTu.BAL.Interface
 
         Task<IEnumerable<Top3LastestPostByCategoryId>> GetsTop3LastestPostByCategoryId(int categoryId);
         Task<List<SearchPost>> Search(string keyword);
-        Task<SearchPost> SearchContent(string keyword);
-        Task<SearchPost> SearchDate(string keyword);
+        Task<List<SearchPost>> SearchContent(string keyword);
+        Task<List<SearchPost>> SearchDate(string keyword);
 
     }
 

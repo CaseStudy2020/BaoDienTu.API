@@ -204,18 +204,18 @@ namespace BaoDienTu.DAL
   
         }
 
-        public async Task<SearchPost> SearchContent(string keyword)
+        public async Task<List<SearchPost>> SearchContent(string keyword)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add(@"keyword", keyword);
-            return await SqlMapper.QueryFirstOrDefaultAsync<SearchPost>(cnn: conn, sql: "sp_SearchContent", param: parameters, commandType: CommandType.StoredProcedure);
+            return (await SqlMapper.QueryAsync<SearchPost>(cnn: conn, sql: "sp_SearchContent", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
         }
 
-        public async Task<SearchPost> SearchDate(string keyword)
+        public async Task<List<SearchPost>> SearchDate(string keyword)
         {
             DynamicParameters parameters = new DynamicParameters();
             parameters.Add(@"keyword", keyword);
-            return await SqlMapper.QueryFirstOrDefaultAsync<SearchPost>(cnn: conn, sql: "sp_Search24h", param: parameters, commandType: CommandType.StoredProcedure);
+            return (await SqlMapper.QueryAsync<SearchPost>(cnn: conn, sql: "sp_Search24h", param: parameters, commandType: CommandType.StoredProcedure)).ToList();
                 
         }
     }
